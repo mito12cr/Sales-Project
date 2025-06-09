@@ -1,0 +1,11 @@
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\bin\Debug\Entidad.dll
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\CapaNegocio\bin\Debug\Entidad.pdb

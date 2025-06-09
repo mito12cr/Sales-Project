@@ -1,0 +1,14 @@
+
+
+Boton guardar
+ dgvdatosUser.Rows.Add(new object[] {"",txtid.Text,txttipodocumento.Text,txtnombre.Text,txtapellido.Text,txtcorreo.Text,
+                                                   txtusername.Text,txttelefono.Text,
+                                                   ((ComboOpciones)cmbestado.SelectedItem).Valor.ToString(),
+                                                   ((ComboOpciones)cmbestado.SelectedItem).Texto.ToString(),
+                                                   ((ComboOpciones)cmbrol.SelectedItem).Valor.ToString(),
+                                                   ((ComboOpciones)cmbrol.SelectedItem).Texto.ToString()
+
+            });
+            limpiarCajasTexto();
+
+

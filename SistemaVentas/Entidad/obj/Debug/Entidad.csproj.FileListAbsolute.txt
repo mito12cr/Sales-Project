@@ -1,0 +1,5 @@
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\Entidad\bin\Debug\Entidad.dll
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\Entidad\bin\Debug\Entidad.pdb
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\Entidad\obj\Debug\Entidad.dll
+C:\Users\mito1\source\repos\SistemaVentas\SistemaVentas\Entidad\obj\Debug\Entidad.pdb
