@@ -83,7 +83,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Contraseña",    objusuario.Contraseña);
                     cmd.Parameters.AddWithValue("IdRol",         objusuario.ORol.IdRol);
                     cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar).Direction        = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction    = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
@@ -119,7 +119,7 @@ namespace CapaDatos
                 using (SqlConnection oConexion = new SqlConnection(Conexion.Cn))
                 {
                     SqlCommand cmd = new SqlCommand("Sp_EditarUsuario ",oConexion); 
-                    cmd.Parameters.AddWithValue("@IdUsuario ",          objusuario .TipoDocumento);
+                    cmd.Parameters.AddWithValue("@IdUsuario ",          objusuario .IdUsuario);
                     cmd.Parameters.AddWithValue("TipoDocumento",        objusuario.TipoDocumento);
                     cmd.Parameters.AddWithValue("Nombre",               objusuario.Nombre);
                     cmd.Parameters.AddWithValue("Apellido",             objusuario.Apellido);
@@ -129,8 +129,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("UserName",             objusuario.Username);
                     cmd.Parameters.AddWithValue("Contraseña",           objusuario.Contraseña);
                     cmd.Parameters.AddWithValue("IdRol",                objusuario.ORol.IdRol);
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction   = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction       = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
@@ -166,9 +166,9 @@ namespace CapaDatos
                 using (SqlConnection oConexion = new SqlConnection(Conexion.Cn))
                 {
                     SqlCommand cmd = new SqlCommand("Sp_EliminarUsuario  ", oConexion);
-                    cmd.Parameters.AddWithValue("@IdUsuario ", objusuario.TipoDocumento);                   
+                    cmd.Parameters.AddWithValue("@IdUsuario ", objusuario.IdUsuario);                   
                     cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oConexion.Open();
