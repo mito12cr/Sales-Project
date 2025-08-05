@@ -83,7 +83,7 @@ namespace CapaPresentacion
 
         private void MnuProductos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new FrmProductos());
+            AbrirFormulario((IconMenuItem)sender, new FrmProducto());
         }
 
         private void MnuCategorias_Click(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace CapaPresentacion
 
         private void MnuProveedores_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new FrmProveedores());
+            AbrirFormulario((IconMenuItem)sender, new FrmProveedor());
         }
 
         private void MnuClientes_Click(object sender, EventArgs e)

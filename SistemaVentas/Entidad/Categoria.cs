@@ -8,11 +8,11 @@ namespace Entidad
 {
     public class Categoria
     {
-        public int IdiCategoria { get; set; }  
+        public int   IdCategoria { get; set; }  
             
         public string Descripcion { get; set; }
         
-        public bool Estado { get; set; }
+        public bool   Estado      { get; set; }
 
         public string FechaRegistro { get; set; }
 

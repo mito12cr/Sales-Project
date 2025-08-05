@@ -6,98 +6,170 @@ using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
+using Entidad;
 
 namespace CapaDatos
 {
-    class DCategoria
+   public class DCategoria
     {
-        private int _Idcategoria;
-        public int Idcategoria { get => _Idcategoria; set => _Idcategoria = value; }
-      
-
-        private string _Nombre;
-        public string Nombre { get => _Nombre; set => _Nombre = value; }
-       
-        
-        private string _Descripcion;
-        public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
-
-
-        private string _BuscaTexto;
-        public string BuscaTexto { get => _BuscaTexto; set => _BuscaTexto = value; }
-
-        public DCategoria()
+        public List<Categoria> Listar()                      //IMPLEMENTAMOS LISTAR LOS CategoriaS
         {
+            List<Categoria> lista = new List<Categoria>();
 
+            using (SqlConnection oConexion = new SqlConnection(Conexion.Cn))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("select IdCategoria, Descripcion, Estado from Categoria");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oConexion);
+                    cmd.CommandType = CommandType.Text;
+                    oConexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())  //LLENAMOS EL DATAREADER Y LO MOSTRAMOS EN EL DATAGRIDVIEW
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Categoria()
+                            {
+                                IdCategoria = Convert.ToInt32(dr["IdCategoria"]),
+                                Descripcion = dr["Descripcion"].ToString(),
+                                Estado      = Convert.ToBoolean(dr["Estado"])
+                            });
+
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    lista = new List<Categoria>();
+
+                }
+
+
+            }
+
+            return lista;
         }
 
-        public DCategoria(int idCategoria, string nombre, string descripcion, string buscatexto)
+        public int Registrar(Categoria objCategoria, out string Mensaje)  //METODO PARA AGREGAR CategoriaS
         {
-            this.Idcategoria = idCategoria;
-            this.Nombre = nombre;
-            this.Descripcion = descripcion;
-            this.BuscaTexto = buscatexto;
-
-        }
-
-        // Insertar Categoria
-        public string Insertar(DCategoria Categoria)
-        {
-            string rpta = "";
-            SqlConnection Sqlconexion = new SqlConnection();
+            int idCategoriaGenerado = 0;
+            Mensaje = string.Empty;
 
             try
             {
-                Sqlconexion.ConnectionString = Conexion.Cn;
-                Sqlconexion.Open();
+                using (SqlConnection oConexion = new SqlConnection(Conexion.Cn))
+                {
+                    SqlCommand cmd = new SqlCommand("Sp_RegistrarCategoria", oConexion);
+                    cmd.Parameters.AddWithValue("Descripcion", objCategoria.Descripcion);
+                    cmd.Parameters.AddWithValue("Estado", objCategoria.Estado);
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
 
-                SqlCommand sqlcomando = new SqlCommand();
-                sqlcomando.Connection = Sqlconexion;
-                sqlcomando.CommandText = "SpInsertar_Categoria";
-                sqlcomando.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter ParIdcategoria = new SqlParameter();
-                ParIdcategoria.ParameterName = "@idCategoria";
-                ParIdcategoria.SqlDbType = SqlDbType.Int;
-                ParIdcategoria.Direction = ParameterDirection.Output;
+                    oConexion.Open();
 
+                    cmd.ExecuteNonQuery();
 
+                    idCategoriaGenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
 
 
             }
             catch (Exception ex)
+            {
+                idCategoriaGenerado = 0;
+                Mensaje = ex.Message;
 
-            {
-                rpta = ex.Message;
             }
-            finally
-            {
-                if (Sqlconexion.State == ConnectionState.Open)
-                    Sqlconexion.Close();
-            }
-            return rpta;
+
+            return idCategoriaGenerado;
+
         }
 
 
-        //public string Editar(DCategoria Categoria)
-        //{
+        public bool Editar(Categoria objCategoria, out string Mensaje)  //METODO PARA EDITAR UN Categoria
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
 
-        //}
+            try
+            {
+                using (SqlConnection oConexion = new SqlConnection(Conexion.Cn))
+                {
+                    SqlCommand cmd = new SqlCommand("Sp_EditarCategoria ", oConexion);
+                    cmd.Parameters.AddWithValue("@IdCategoria ", objCategoria.IdCategoria);
+                    cmd.Parameters.AddWithValue("Descripcion", objCategoria.Descripcion);
+                    cmd.Parameters.AddWithValue("Estado", objCategoria.Estado);
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        //public string Eliminar(DCategoria Categoria)
-        //{
+                    oConexion.Open();
 
-        //}
+                    cmd.ExecuteNonQuery();
 
-        //public DataTable Buscar()
-        //{
+                    Respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
-        //}
+                }
 
-        //public DataTable BuscarNombre(DCategoria Categoria)
-        //{
 
-        //}
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+
+            }
+
+            return Respuesta;
+
+        }
+
+
+        public bool Eliminar(Categoria objCategoria, out string Mensaje)  // METODO PARA ELIMINAR UN Categoria
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oConexion = new SqlConnection(Conexion.Cn))
+                {
+                    SqlCommand cmd = new SqlCommand("Sp_EliminarCategoria  ", oConexion);
+                    cmd.Parameters.AddWithValue("@Idcategoria ", objCategoria.IdCategoria);
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oConexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+
+            }
+
+            return Respuesta;
+
+        }
 
     }
 }

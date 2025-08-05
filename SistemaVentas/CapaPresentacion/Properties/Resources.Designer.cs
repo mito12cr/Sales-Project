@@ -93,6 +93,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Certificado_TITULO {
+            get {
+                object obj = ResourceManager.GetObject("Certificado TITULO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cliente_icon {
+            get {
+                object obj = ResourceManager.GetObject("cliente icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconChech {
             get {
                 object obj = ResourceManager.GetObject("iconChech", resourceCulture);
@@ -116,6 +136,26 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap iconChechPeke2 {
             get {
                 object obj = ResourceManager.GetObject("iconChechPeke2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap productos_sabor_2018 {
+            get {
+                object obj = ResourceManager.GetObject("productos-sabor-2018", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Proveedores {
+            get {
+                object obj = ResourceManager.GetObject("Proveedores", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

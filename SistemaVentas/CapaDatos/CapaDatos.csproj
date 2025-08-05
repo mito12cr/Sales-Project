@@ -46,7 +46,10 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="DCategoria.cs" />
+    <Compile Include="DCliente.cs" />
     <Compile Include="DPermisos.cs" />
+    <Compile Include="DProducto.cs" />
+    <Compile Include="DProveedor.cs" />
     <Compile Include="DRol.cs" />
     <Compile Include="DUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

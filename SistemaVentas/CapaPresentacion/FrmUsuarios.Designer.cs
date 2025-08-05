@@ -29,9 +29,9 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuarios));
             this.label1 = new System.Windows.Forms.Label();
             this.lbltipodocumento = new System.Windows.Forms.Label();
@@ -64,26 +64,27 @@ namespace CapaPresentacion
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtid = new System.Windows.Forms.TextBox();
             this.cmbbusqueda = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtbusqueda = new System.Windows.Forms.TextBox();
+            this.txtrepetirrcontraseña = new System.Windows.Forms.TextBox();
+            this.lblrepitecontraseña = new System.Windows.Forms.Label();
+            this.txtindice = new System.Windows.Forms.TextBox();
+            this.btneliminar = new System.Windows.Forms.Button();
+            this.btnlimpiar = new System.Windows.Forms.Button();
+            this.btnguardar = new System.Windows.Forms.Button();
             this.btnlimpiarcajas = new FontAwesome.Sharp.IconButton();
             this.btnbuscador = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtrepetirrcontraseña = new System.Windows.Forms.TextBox();
-            this.lblrepitecontraseña = new System.Windows.Forms.Label();
-            this.btnguardar = new System.Windows.Forms.Button();
-            this.btnlimpiar = new System.Windows.Forms.Button();
-            this.btneliminar = new System.Windows.Forms.Button();
-            this.txtindice = new System.Windows.Forms.TextBox();
+            this.btnexportar = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdatosUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -301,14 +302,14 @@ namespace CapaPresentacion
             // 
             this.dgvdatosUser.AllowUserToAddRows = false;
             this.dgvdatosUser.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdatosUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdatosUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvdatosUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdatosUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnseleccionar,
@@ -318,33 +319,33 @@ namespace CapaPresentacion
             this.Apellido,
             this.Correo,
             this.Telefono,
+            this.UserName,
             this.EstadoValor,
             this.Estado,
-            this.UserName,
-            this.Contraseña,
             this.IdRol,
             this.Rol,
+            this.Contraseña,
             this.Descripcion});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvdatosUser.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvdatosUser.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdatosUser.Location = new System.Drawing.Point(0, 21);
             this.dgvdatosUser.MultiSelect = false;
             this.dgvdatosUser.Name = "dgvdatosUser";
             this.dgvdatosUser.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdatosUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdatosUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdatosUser.RowHeadersWidth = 51;
             this.dgvdatosUser.RowTemplate.Height = 24;
             this.dgvdatosUser.Size = new System.Drawing.Size(1312, 494);
@@ -409,6 +410,14 @@ namespace CapaPresentacion
             this.Telefono.ReadOnly = true;
             this.Telefono.Width = 125;
             // 
+            // UserName
+            // 
+            this.UserName.HeaderText = "UserName";
+            this.UserName.MinimumWidth = 6;
+            this.UserName.Name = "UserName";
+            this.UserName.ReadOnly = true;
+            this.UserName.Width = 125;
+            // 
             // EstadoValor
             // 
             this.EstadoValor.HeaderText = "EstadoValor";
@@ -426,23 +435,6 @@ namespace CapaPresentacion
             this.Estado.ReadOnly = true;
             this.Estado.Width = 125;
             // 
-            // UserName
-            // 
-            this.UserName.HeaderText = "UserName";
-            this.UserName.MinimumWidth = 6;
-            this.UserName.Name = "UserName";
-            this.UserName.ReadOnly = true;
-            this.UserName.Width = 125;
-            // 
-            // Contraseña
-            // 
-            this.Contraseña.HeaderText = "Contraseña";
-            this.Contraseña.MinimumWidth = 6;
-            this.Contraseña.Name = "Contraseña";
-            this.Contraseña.ReadOnly = true;
-            this.Contraseña.Visible = false;
-            this.Contraseña.Width = 125;
-            // 
             // IdRol
             // 
             this.IdRol.HeaderText = "IdRol";
@@ -459,6 +451,15 @@ namespace CapaPresentacion
             this.Rol.Name = "Rol";
             this.Rol.ReadOnly = true;
             this.Rol.Width = 125;
+            // 
+            // Contraseña
+            // 
+            this.Contraseña.HeaderText = "Contraseña";
+            this.Contraseña.MinimumWidth = 6;
+            this.Contraseña.Name = "Contraseña";
+            this.Contraseña.ReadOnly = true;
+            this.Contraseña.Visible = false;
+            this.Contraseña.Width = 125;
             // 
             // Descripcion
             // 
@@ -504,6 +505,66 @@ namespace CapaPresentacion
             this.txtbusqueda.Size = new System.Drawing.Size(192, 22);
             this.txtbusqueda.TabIndex = 37;
             // 
+            // txtrepetirrcontraseña
+            // 
+            this.txtrepetirrcontraseña.Location = new System.Drawing.Point(255, 468);
+            this.txtrepetirrcontraseña.Name = "txtrepetirrcontraseña";
+            this.txtrepetirrcontraseña.PasswordChar = '*';
+            this.txtrepetirrcontraseña.Size = new System.Drawing.Size(234, 22);
+            this.txtrepetirrcontraseña.TabIndex = 18;
+            // 
+            // lblrepitecontraseña
+            // 
+            this.lblrepitecontraseña.AutoSize = true;
+            this.lblrepitecontraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrepitecontraseña.Location = new System.Drawing.Point(18, 467);
+            this.lblrepitecontraseña.Name = "lblrepitecontraseña";
+            this.lblrepitecontraseña.Size = new System.Drawing.Size(180, 25);
+            this.lblrepitecontraseña.TabIndex = 9;
+            this.lblrepitecontraseña.Text = "Repetir Contraseña";
+            // 
+            // txtindice
+            // 
+            this.txtindice.Location = new System.Drawing.Point(309, 121);
+            this.txtindice.Name = "txtindice";
+            this.txtindice.Size = new System.Drawing.Size(36, 22);
+            this.txtindice.TabIndex = 41;
+            this.txtindice.Text = "-1";
+            this.txtindice.Visible = false;
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
+            this.btneliminar.Location = new System.Drawing.Point(343, 561);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(76, 57);
+            this.btneliminar.TabIndex = 40;
+            this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
+            // 
+            // btnlimpiar
+            // 
+            this.btnlimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnlimpiar.Image")));
+            this.btnlimpiar.Location = new System.Drawing.Point(219, 561);
+            this.btnlimpiar.Name = "btnlimpiar";
+            this.btnlimpiar.Size = new System.Drawing.Size(76, 57);
+            this.btnlimpiar.TabIndex = 39;
+            this.btnlimpiar.UseVisualStyleBackColor = true;
+            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
+            // 
+            // btnguardar
+            // 
+            this.btnguardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnguardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnguardar.BackgroundImage")));
+            this.btnguardar.Image = ((System.Drawing.Image)(resources.GetObject("btnguardar.Image")));
+            this.btnguardar.Location = new System.Drawing.Point(90, 561);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(76, 57);
+            this.btnguardar.TabIndex = 38;
+            this.btnguardar.Text = " ";
+            this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
+            // 
             // btnlimpiarcajas
             // 
             this.btnlimpiarcajas.IconChar = FontAwesome.Sharp.IconChar.Broom;
@@ -540,70 +601,30 @@ namespace CapaPresentacion
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // txtrepetirrcontraseña
+            // btnexportar
             // 
-            this.txtrepetirrcontraseña.Location = new System.Drawing.Point(255, 468);
-            this.txtrepetirrcontraseña.Name = "txtrepetirrcontraseña";
-            this.txtrepetirrcontraseña.PasswordChar = '*';
-            this.txtrepetirrcontraseña.Size = new System.Drawing.Size(234, 22);
-            this.txtrepetirrcontraseña.TabIndex = 18;
-            // 
-            // lblrepitecontraseña
-            // 
-            this.lblrepitecontraseña.AutoSize = true;
-            this.lblrepitecontraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblrepitecontraseña.Location = new System.Drawing.Point(18, 467);
-            this.lblrepitecontraseña.Name = "lblrepitecontraseña";
-            this.lblrepitecontraseña.Size = new System.Drawing.Size(180, 25);
-            this.lblrepitecontraseña.TabIndex = 9;
-            this.lblrepitecontraseña.Text = "Repetir Contraseña";
-            // 
-            // btnguardar
-            // 
-            this.btnguardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnguardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnguardar.BackgroundImage")));
-            this.btnguardar.Image = ((System.Drawing.Image)(resources.GetObject("btnguardar.Image")));
-            this.btnguardar.Location = new System.Drawing.Point(90, 561);
-            this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(76, 57);
-            this.btnguardar.TabIndex = 38;
-            this.btnguardar.Text = " ";
-            this.btnguardar.UseVisualStyleBackColor = true;
-            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
-            // 
-            // btnlimpiar
-            // 
-            this.btnlimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnlimpiar.Image")));
-            this.btnlimpiar.Location = new System.Drawing.Point(219, 561);
-            this.btnlimpiar.Name = "btnlimpiar";
-            this.btnlimpiar.Size = new System.Drawing.Size(76, 57);
-            this.btnlimpiar.TabIndex = 39;
-            this.btnlimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
-            this.btneliminar.Location = new System.Drawing.Point(343, 561);
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(76, 57);
-            this.btneliminar.TabIndex = 40;
-            this.btneliminar.UseVisualStyleBackColor = true;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
-            // 
-            // txtindice
-            // 
-            this.txtindice.Location = new System.Drawing.Point(309, 121);
-            this.txtindice.Name = "txtindice";
-            this.txtindice.Size = new System.Drawing.Size(36, 22);
-            this.txtindice.TabIndex = 41;
-            this.txtindice.Text = "-1";
-            this.txtindice.Visible = false;
+            this.btnexportar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnexportar.IconChar = FontAwesome.Sharp.IconChar.Eject;
+            this.btnexportar.IconColor = System.Drawing.Color.Green;
+            this.btnexportar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnexportar.IconSize = 35;
+            this.btnexportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnexportar.Location = new System.Drawing.Point(507, 17);
+            this.btnexportar.Name = "btnexportar";
+            this.btnexportar.Size = new System.Drawing.Size(146, 37);
+            this.btnexportar.TabIndex = 92;
+            this.btnexportar.TabStop = false;
+            this.btnexportar.Text = "Descargar Excell";
+            this.btnexportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnexportar.UseVisualStyleBackColor = false;
+            this.btnexportar.Click += new System.EventHandler(this.btnexportar_Click);
             // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1878, 689);
+            this.Controls.Add(this.btnexportar);
             this.Controls.Add(this.txtindice);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnlimpiar);
@@ -698,12 +719,13 @@ namespace CapaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Contraseña;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Contraseña;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private FontAwesome.Sharp.IconButton btnexportar;
     }
 }

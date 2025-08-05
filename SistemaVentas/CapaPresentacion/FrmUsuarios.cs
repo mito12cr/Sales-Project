@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CapaPresentacion.Utilidades;
 using CapaNegocio;
 using Entidad;
+using ClosedXML.Excel;
 
 namespace CapaPresentacion
 {
@@ -20,7 +21,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
+        
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
             cmbestado.Items.Add(new ComboOpciones() { Valor = 1, Texto = "Activo" }); // RELLENANDO EL COMBOBOX DE ESTADO
@@ -58,13 +59,13 @@ namespace CapaPresentacion
                                                        item.Nombre,
                                                        item.Apellido,
                                                        item.Correo,
-                                                       item.Telefono,        
-                                                       item.Estado == true ? 1 : 0 ,
-                                                       item.Estado == true ? "Activo" : "No Activo",
+                                                       item.Telefono,
                                                        item.Username,
-                                                       item.Contraseña,
+                                                       item.Estado == true ? 1 : 0 ,
+                                                       item.Estado == true ? "Activo" : "No Activo",    
                                                        item.ORol.IdRol,
-                                                       item.ORol.Descripcion
+                                                       item.ORol.Descripcion,
+                                                       item.Contraseña
 
 
 
@@ -72,6 +73,7 @@ namespace CapaPresentacion
             }
         }
 
+        /*
         private void picboxGuardar_Click(object sender, EventArgs e)
         {
             dgvdatosUser.Rows.Add(new object[] {"",txtid.Text,txttipodocumento.Text,txtnombre.Text,txtapellido.Text,txtcorreo.Text,
@@ -84,7 +86,7 @@ namespace CapaPresentacion
             });
             limpiarCajasTexto();
         }
-
+        */
         private void limpiarCajasTexto()
         {
             txttipodocumento.Text = "";
@@ -140,8 +142,6 @@ namespace CapaPresentacion
                     txtcorreo.Text              = dgvdatosUser.Rows[indice].Cells["Correo"].Value.ToString();                    
                     txtusername.Text            = dgvdatosUser.Rows[indice].Cells["UserName"].Value.ToString();
                     txttelefono.Text            = dgvdatosUser.Rows[indice].Cells["Telefono"].Value.ToString();
-                    txtcontraseña.Text          = dgvdatosUser.Rows[indice].Cells["Contraseña"].Value.ToString();
-                    txtrepetirrcontraseña.Text  = dgvdatosUser.Rows[indice].Cells["Contraseña"].Value.ToString();
 
                     foreach (ComboOpciones optionCombo in cmbrol.Items)
                     {
@@ -162,6 +162,9 @@ namespace CapaPresentacion
                             break;
                         }
                     }
+
+                    txtcontraseña.Text = dgvdatosUser.Rows[indice].Cells["Contraseña"].Value.ToString();
+                    txtrepetirrcontraseña.Text = dgvdatosUser.Rows[indice].Cells["Contraseña"].Value.ToString();
                 }
             }
         }
@@ -192,7 +195,7 @@ namespace CapaPresentacion
                 if (idusuariogenerado != 0)
                 {
                     dgvdatosUser.Rows.Add(new object[] {"",idusuariogenerado,txttipodocumento.Text,txtnombre.Text,txtapellido.Text,txtcorreo.Text,
-                                                   txtusername.Text,txttelefono.Text,
+                                                    txttelefono.Text,txtusername.Text,
                                                    ((ComboOpciones)cmbestado.SelectedItem).Valor.ToString(),
                                                    ((ComboOpciones)cmbestado.SelectedItem).Texto.ToString(),
                                                    ((ComboOpciones)cmbrol.SelectedItem).Valor.ToString(),
@@ -290,6 +293,63 @@ namespace CapaPresentacion
             foreach(DataGridViewRow row in dgvdatosUser.Rows)
             {
                 row.Visible = true;
+            }
+        }
+
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            limpiarCajasTexto();
+        }
+
+        private void btnexportar_Click(object sender, EventArgs e)
+        {
+            if (dgvdatosUser.Rows.Count < 1)
+            {
+                MessageBox.Show("No hay Datos para Exportar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                DataTable dt = new DataTable();
+                foreach (DataGridViewColumn columna in dgvdatosUser.Columns)    //
+                {
+                    if (columna.HeaderText != "" && columna.Visible)
+                        dt.Columns.Add(columna.HeaderText, typeof(string));
+                }
+
+                foreach (DataGridViewRow fila in dgvdatosUser.Rows)
+                {
+                    if (fila.Visible)
+                        dt.Rows.Add(new object[]{
+                        fila.Cells[2].Value.ToString(),
+                        fila.Cells[3].Value.ToString(),
+                        fila.Cells[4].Value.ToString(),
+                        fila.Cells[5].Value.ToString(),
+                        fila.Cells[6].Value.ToString(),
+                        fila.Cells[7].Value.ToString(),
+                        fila.Cells[8].Value.ToString(),
+                        fila.Cells[11].Value.ToString()
+                        });
+                }
+
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.FileName = string.Format("ReporteUsuarios_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss"));
+                saveFile.Filter = "Excel Files | *.xlsx";
+
+                if (saveFile.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        XLWorkbook wb = new XLWorkbook();
+                        var hoja = wb.Worksheets.Add(dt, "Informe");
+                        hoja.ColumnsUsed().AdjustToContents();
+                        wb.SaveAs(saveFile.FileName);
+                        MessageBox.Show("Reporte Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error al Generar Reporte.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
             }
         }
     }
